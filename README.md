@@ -2,4 +2,4 @@
 farbox主题日常挖新坑系列
 预览图：
 
-<img src="./preview.jpg">
+<img src="./preview.png">
