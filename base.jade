@@ -1,0 +1,51 @@
+html
+	+i18n('Home', '首页', 'zh_cn')
+	+i18n('Albums', '相册', 'zh_cn')
+	+i18n('Categories', '分类', 'zh_cn')
+	+i18n('Archive', '归档', 'zh_cn')
+	+i18n('Tags', '标签', 'zh_cn')
+	+i18n('About', '关于', 'zh_cn')
+	+i18n('Links', '友链', 'zh_cn')
+	head
+		+mobile_meta()
+		meta(name="keywords", content=site.configs.keywords.escaped)
+		meta(name="description", content=site.raw_content.escaped)
+		block title
+			title= request.args.s or post.title or tags.join('+') or category.title or site.title
+		load('fonts /template/blog/base.css')
+		load('fonts /template/blog/style.scss')
+	body
+		#body_wrapper
+			header#header.header
+				.header_wrapper.layout
+					h1.title= site.title
+					nav#nav.nav
+						ul.nav-list.clf
+							li
+								a(href="/") Home
+							if has('categories')
+								li
+									a(href='/category/frontend') Frontend
+								li
+									a(href='/category/dailylife') Dailylife
+								li
+									a(href='/category/travel') Travel
+								li
+									a(href='/category/draw') Draw
+							if site.tags
+								li
+									a(href='/tags') Tags
+				block banner				
+			#main.layout
+				block content
+			footer.footer#footer
+				.powered_by
+					a(href="https://www.farbox.com", target="_blank") Powered By FarBox.com
+					a.admin(href="/admin") Admin
+					span ©2012-2015 NINE Inc.
+
+			+load('jquery')
+			+load('imageloaded.js')
+			+load('masonry.js')
+			+load('particles.js')
+			+load('main.js')

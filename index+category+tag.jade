@@ -1,0 +1,82 @@
+mixin make_posts(posts)
+	for post in posts
+		.post.grid-item
+			.content
+				article.article
+					if post.cover
+						.post_cover
+							a.cover_img(href=post.url,style="background-image: url({{post.cover}})")
+						.post_main
+							h1.title
+                                a(href=post.url)= post.title
+							.info.clf
+								span.date
+									i.fa.fa-calendar
+									span= post.date.format('%Y-%m-%d')
+								span.visitors
+									i.fa.fa-bookmark-o
+									span= post.visits or 0
+								if post.tags
+									span.tags
+										for tag in post.tags
+											a(href="/tag/{{tag}}")= tag
+							.post_body= post.content.limit(10)
+					else
+						.post_main
+							h1.title
+								a(href=post.url)= post.title
+							.info.clearfix
+								span.date
+									i.fa.fa-calendar
+									span= post.date.format('%Y-%m-%d')
+								span.visitors
+									i.fa.fa-bookmark-o
+									span= post.visits or 0
+								if post.tags
+									span.tags
+										for tag in post.tags
+											a(href="/tag/{{tag}}")= tag
+							.post_body= post.content.limit(100)
+
+
+if request.args.pjax=='true'
+	+make_posts(posts)
+else
+	extends base
+	block title
+		title= request.args.s or tags.join('+') or category.title or site.title
+	block banner
+		site_cover = '/farbox_free_image.jpg'
+		site_desc = 'どうか、君と君を囲むこの世界が、これからも幸せでありますように。'
+		cover_color = '#fff'
+		if category.title=='Draw'
+			site_cover = '/Album/_image/f.jpg'
+			cover_color = '#f2eeed'
+			site_desc = '数码绘 · Clip Studio Paint'
+		else if category.title=='Travel'
+			site_cover = '/Album/_image/travel.jpg'
+			site_desc = '世界这么大 · 有钱就去看看'
+		else if category.title=='DailyLife'
+			site_cover = '/Album/_image/daily.jpg'
+			site_desc = '宅 · 宅 · 宅'
+		else if category.title=='FrontEnd'
+			site_cover = '/Album/_image/front.jpg'
+			site_desc = 'HTML · CSS · JavaScript · 靠敲代码维持生计_(:зゝ∠)_'
+		else
+			site_cover = '/Album/_image/banner.jpg'
+		div.media_wrap
+			.media_title
+				h2= category.title or ''
+				p.desc= site_desc
+			#particles-js.media(style="background-image: url({{site_cover}});background-color: {{cover_color}}")
+	block content
+		if request.path.strip('/') == 'category'
+			+redirect('/categories')
+		else
+			.list.grid
+				.grid-sizer
+				+make_posts(posts)
+			include include/paginator
+
+			#on_loading.hidden
+					i.fa.fa-spinner.fa-spin
