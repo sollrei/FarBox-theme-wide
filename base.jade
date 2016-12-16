@@ -13,7 +13,7 @@ html
 		block title
 			title= request.args.s or post.title or tags.join('+') or category.title or site.title
 		load('fonts /template/blog/style.scss')
-        link(href="https://fonts.googleapis.com/css?family=Molle:400i|Roboto",rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Molle:400i|Roboto:300",rel="stylesheet")
 	body
 		#body_wrapper
 			header#header.header
@@ -32,16 +32,35 @@ html
 									a(href='/category/travel') Travel
 								li
 									a(href='/category/draw') Draw
+							if site.tags
+								li
+									a(href='/tags') Tags
 				block banner
 			#main.layout
 				block content
 			footer.footer#footer
-                .contact.layout
-                    a.fa.fa-twitter(href='https://twitter.com/sollrei', target='_blank')
-                    a.fa.fa-github(href='https://github.com/sollrei/FarBox-theme-wide', target='_blank')
-                    a.fa.fa-weibo(href='http://weibo.com/sollrei', target='_blank')
+                .layout
+                    .footer_box.footer_about
+                        .footer_item
+                            h5.title About
+                            .about
+                                img.avatar(src='{{site.avatar}}')
+                                p hello 地球人
+                    .footer_box.footer_tag
+                        .footer_item
+                            h5.title Tag Cloud
+                            .tag_cloud
+                            for tag in site.tags
+                                a.tag_item(href='/tag/{{tag[0]}}') {{tag[0]}}
+                    .footer_box.footer_contact
+                        .footer_item
+                            h5.title Contact
+                            .contact
+                                a.fa.fa-twitter(href='https://twitter.com/sollrei', target='_blank')
+                                a.fa.fa-github(href='https://github.com/sollrei/FarBox-theme-wide', target='_blank')
+                                a.fa.fa-weibo(href='http://weibo.com/sollrei', target='_blank')
                 .powered_by
-					span ©2016 Sollrei Inc.
+					span ©2016 Sollrei
 			+load('jquery')
 			+load('imageloaded.js')
 			+load('masonry.js')

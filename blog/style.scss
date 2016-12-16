@@ -538,16 +538,16 @@ code, kbd, pre, samp {
         font-size: 20px;
         padding: 10px 0 20px;
     }
-    .tag_cloud {
-        a {
-            display: inline-block;
-            padding: 5px 15px;
-            border: 1px solid $theme;
-            margin: 0 10px 10px 0;
-            &:hover {
-                text-decoration: none;
-            }
-        }
+
+}
+
+.tag_item {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid $theme;
+    margin: 0 10px 10px 0;
+    &:hover {
+        text-decoration: none;
     }
 }
 
@@ -789,56 +789,56 @@ code, kbd, pre, samp {
 .footer {
     margin-top: 30px;
     padding-top: 20px;
-    font-size: 12px;
     background: #fff;
 
     .footer_box {
         width: 30%;
         float: left;
         .title {
+            line-height: 2.3;
             font-size: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid $theme;
+            font-family: "Molle", sans-serif;
         }
         li {
             line-height: 2;
         }
     }
 
+    .footer_tag {
+        width: 40%;
+    }
+
+    .footer_item {
+        padding: 0 20px;
+    }
+
+    .avatar {
+        height: 80px;
+        width: 80px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        border: 2px solid $theme;
+    }
+
     .contact {
         font-size: 30px;
-        text-align: center;
         a {
             display: inline-block;
-            vertical-align: middle;
+            margin: 0 10px;
         }
     }
 
-    a {
-        color: $primary;
-        margin: 0 10px;
-
-        &:hover {
-            text-decoration: none;
-            color: $primary;
-        }
-    }
-
-    a.admin {
-        color: $primary;
-        font-weight: bold;
+    a:hover {
+        text-decoration: none;
     }
 
     .powered_by {
-        padding-top: 30px;
-        padding-bottom: 20px;
+        padding: 30px 0 20px;
+        font-size: 12px;
         text-align: center;
-
-        span {
-            font-size: 9px;
-            padding: 0 15px;
-        }
     }
-
 }
 
 // main container
@@ -884,13 +884,17 @@ code, kbd, pre, samp {
     .aside {
         display: none;
     }
+    .footer {
+        .footer_box {
+            width: 33.3%;
+        }
+    }
 }
 
 @media only screen and (max-width: 650px) {
     .media_wrap {
         display: none;
     }
-
     .nav {
         li {
             float: left;
@@ -906,6 +910,12 @@ code, kbd, pre, samp {
     }
     .grid-item {
         width: 100%;
+    }
+    .footer {
+        .footer_box {
+            float: none;
+            width: 100%;
+        }
     }
 }
 
