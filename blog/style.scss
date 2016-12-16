@@ -68,7 +68,7 @@ html, body {
 
 body {
     line-height: 1.6;
-    font-family: "Georgia", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
+    font-family: "Roboto", "Xin Gothic", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei", sans-serif;
     font-size: 1em;
     color: $font_color;
     overflow-x: hidden;
@@ -88,6 +88,162 @@ body {
     width: 1200px;
     margin: 0 auto;
 }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block
+}
+
+input, select, textarea {
+    font-size: 100%
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th {
+    text-align: inherit
+}
+
+fieldset, img {
+    border: 0
+}
+
+iframe {
+    display: block
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal
+}
+
+del {
+    text-decoration: line-through
+}
+
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 500
+}
+
+ol, ul {
+    list-style: none
+}
+
+caption, th {
+    text-align: left
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500
+}
+
+q:before, q:after {
+    content: ''
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -.5em
+}
+
+sub {
+    bottom: -.25em
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #58b798;
+    text-decoration: underline
+}
+
+code, kbd, pre, samp {
+    font-family: monospace, serif;
+    font-size: 14px;
+}
+
+.pre {
+    margin-bottom: 10px;
+}
+
+.clearfix:after, .layout:after, .clf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: '.';
+    clear: both;
+    height: 0
+}
+
+.clearfix, .layout, .clf {
+    zoom: 1
+}
+
+.clear {
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden
+}
+
+.fn-hide {
+    display: none
+}
+
+.fl, .fr {
+    display: inline
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.fn-rmb {
+    font-family: arial, sans-serif;
+    font-style: normal;
+    padding-right: 4px
+}
+
+.fn-webkit-adjust {
+    -webkit-text-size-adjust: none
+}
+
+.hidden {
+    display: none;
+}
+
+#on_loading {
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+}
+
+
+
 //*********************************************************************//
 //                               header                               //
 //*********************************************************************//
@@ -106,6 +262,7 @@ body {
         font-size: 2em;
         text-align: center;
         border-bottom: 1px solid $theme;
+        font-family: "Molle", sans-serif;
     }
 
     .nav {
@@ -173,7 +330,7 @@ body {
 .post {
     .post_body {
         img {
-            max-width: 60%;
+            max-width: 90%;
             display: block;
             margin: 0 auto;
         }
@@ -305,9 +462,10 @@ body {
 
 .detail {
     margin-top: 30px;
+    float: left;
+    width: 70%;
     background: #fff;
     position: relative;
-    @extend .border_container;
 
     .content {
         padding: 2.5em;
@@ -363,6 +521,36 @@ body {
     }
 }
 
+.aside_wrap {
+    float: right;
+    width: 30%;
+    margin-top: 30px;
+    .aside {
+        padding-left: 30px;
+    }
+    .aside_box {
+        padding: 20px;
+        background: #fff;
+    }
+    .title {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 20px;
+        padding: 10px 0 20px;
+    }
+    .tag_cloud {
+        a {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid $theme;
+            margin: 0 10px 10px 0;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
 //******************************  post list  starts *******************************//
 
 .grid {
@@ -380,20 +568,20 @@ body {
 
 // pad and pc
 .list {
-    .post_cover {
-        margin-bottom: -10px;
-    }
     .cover_img {
         display: block;
-        height: 260px;
+        height: 220px;
         background-position: center top;
         background-size: cover;
     }
+    .info {
+        margin-bottom: 0;
+    }
     .post_body {
+        padding-top: 30px;
         img {
             display: none;
             height: 1px;
-
         }
     }
     .post {
@@ -494,7 +682,6 @@ body {
 .list_with_title {
     font-size: 16px;
     background: $bg1;
-    @extend .border_container;
     padding: 1.5em 3em;
     margin: 0;
 
@@ -603,6 +790,7 @@ body {
     margin-top: 30px;
     padding-top: 20px;
     font-size: 12px;
+    background: #fff;
 
     .footer_box {
         width: 30%;
@@ -616,12 +804,13 @@ body {
         }
     }
 
-    .about {
-        color: #adadad;
-    }
-
-    .avatar {
-        margin-bottom: 15px;
+    .contact {
+        font-size: 30px;
+        text-align: center;
+        a {
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
 
     a {
@@ -688,12 +877,20 @@ body {
     .grid-item {
         width: 50%;
     }
+    .detail {
+        width: 100%;
+        float: none;
+    }
+    .aside {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 650px) {
     .media_wrap {
         display: none;
     }
+
     .nav {
         li {
             float: left;
@@ -710,4 +907,105 @@ body {
     .grid-item {
         width: 100%;
     }
+}
+
+
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #333;
+    background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #998;
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+    color: #333;
+    font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+    color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+    color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+    color: #900;
+    font-weight: bold;
+}
+
+.hljs-subst {
+    font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+    color: #458;
+    font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+    color: #000080;
+    font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+    color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+    color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+    color: #0086b3;
+}
+
+.hljs-meta {
+    color: #999;
+    font-weight: bold;
+}
+
+.hljs-deletion {
+    background: #fdd;
+}
+
+.hljs-addition {
+    background: #dfd;
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
 }

@@ -5,6 +5,8 @@
         percentPosition: true
     });
 
+    hljs.initHighlightingOnLoad();
+
     if ($('#particles-js').length) {
         particlesJS("particles-js", {
             "particles": {
@@ -34,7 +36,7 @@
                     }
                 },
                 "opacity": {
-                    "value": 0.5,
+                    "value": 0.2,
                     "random": false,
                     "anim": {
                         "enable": false,
@@ -44,7 +46,7 @@
                     }
                 },
                 "size": {
-                    "value": 3,
+                    "value": 5,
                     "random": true,
                     "anim": {
                         "enable": false,

@@ -4,7 +4,7 @@ block title
 block content
 
 	.detail
-		.post
+		article.post
 			.content
 				h1.title= post.title
 				.info.clearfix
@@ -33,3 +33,10 @@ block content
 					span {{ next_one.title }} &gt;
 
 		include include/comments.jade
+	.aside_wrap
+        aside.aside
+            .aside_box
+                h3.title Tag Cloud
+                .tag_cloud
+                    for tag in site.tags
+                        a(href='/tag/{{tag[0]}}') {{tag[0]}}

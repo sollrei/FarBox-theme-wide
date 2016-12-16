@@ -12,8 +12,8 @@ html
 		meta(name="description", content=site.raw_content.escaped)
 		block title
 			title= request.args.s or post.title or tags.join('+') or category.title or site.title
-		load('fonts /template/blog/base.css')
 		load('fonts /template/blog/style.scss')
+        link(href="https://fonts.googleapis.com/css?family=Molle:400i|Roboto",rel="stylesheet")
 	body
 		#body_wrapper
 			header#header.header
@@ -32,20 +32,19 @@ html
 									a(href='/category/travel') Travel
 								li
 									a(href='/category/draw') Draw
-							if site.tags
-								li
-									a(href='/tags') Tags
-				block banner				
+				block banner
 			#main.layout
 				block content
 			footer.footer#footer
-				.powered_by
-					a(href="https://www.farbox.com", target="_blank") Powered By FarBox.com
-					a.admin(href="/admin") Admin
-					span ©2012-2015 NINE Inc.
-
+                .contact.layout
+                    a.fa.fa-twitter(href='https://twitter.com/sollrei', target='_blank')
+                    a.fa.fa-github(href='https://github.com/sollrei/FarBox-theme-wide', target='_blank')
+                    a.fa.fa-weibo(href='http://weibo.com/sollrei', target='_blank')
+                .powered_by
+					span ©2016 Sollrei Inc.
 			+load('jquery')
 			+load('imageloaded.js')
 			+load('masonry.js')
+            +load('highlight.pack.js')
 			+load('particles.js')
 			+load('main.js')
