@@ -23,9 +23,14 @@ html
                         ul.nav-list.clf
                             li
                                 a(href="/") Home
-                            for category in  get_data(type='folder', level=[1,2], min_posts_count=1)
-                                li
-                                    a(href="/category/{{ category.path }}")= category.path
+                            li
+                                a(href="/category/dailylife") DailyLife
+                            li
+                                a(href="/category/frontend") FrontEnd
+                            li
+                                a(href="/category/draw") Draw
+                            li
+                                a(href="/category/travel") Travel
                 block banner
             #main.layout
                 block content

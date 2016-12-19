@@ -9,15 +9,18 @@ block banner
 		site_desc = '数码绘 · Clip Studio Paint'
 	else if category.title=='Travel'
 		site_cover = '/Album/_image/travel.jpg'
-		site_desc = '世界这么大 · 有钱就去看看'
+		site_desc = '世界那么大'
 	else if category.title=='DailyLife'
 		site_cover = '/Album/_image/daily.jpg'
-		site_desc = '宅 · 宅 · 宅'
+		site_desc = '日常 · 吐槽 · 记录'
 	else if category.title=='FrontEnd'
 		site_cover = '/Album/_image/front.jpg'
 		site_desc = 'HTML · CSS · JavaScript · 靠敲代码维持生计_(:зゝ∠)_'
 	div.media_wrap.media_category
 		.media_title
 			h2= category.title or tags.join('+') or ''
+			p.count
+                span= posts.length
+                span posts
 			p.desc= site_desc
 		.media(style="background-image: url({{site_cover}});background-color: {{cover_color}}")

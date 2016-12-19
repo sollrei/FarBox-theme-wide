@@ -6,5 +6,8 @@ block banner
 	div.media_wrap.media_tag
 		.media_title
 			h2= tags.join('+') or ''
+			p.count
+				span= posts.length
+				span  posts
 			p.desc= site_desc
 		.media(style="background-image: url({{site_cover}});background-color: {{cover_color}}")
