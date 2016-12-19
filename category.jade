@@ -16,7 +16,7 @@ block banner
 	else if category.title=='FrontEnd'
 		site_cover = '/Album/_image/front.jpg'
 		site_desc = 'HTML · CSS · JavaScript · 靠敲代码维持生计_(:зゝ∠)_'
-	div.media_wrap
+	div.media_wrap.media_category
 		.media_title
 			h2= category.title or tags.join('+') or ''
 			p.desc= site_desc

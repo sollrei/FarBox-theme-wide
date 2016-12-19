@@ -1,0 +1,10 @@
+extends base2
+block banner
+	site_cover = 'https://unsplash.it/1930/800?image=431'
+	site_desc = ''
+	cover_color = '#fff'
+	div.media_wrap.media_tag
+		.media_title
+			h2= tags.join('+') or ''
+			p.desc= site_desc
+		.media(style="background-image: url({{site_cover}});background-color: {{cover_color}}")

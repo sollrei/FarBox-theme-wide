@@ -321,6 +321,9 @@ code, kbd, pre, samp {
         padding-top: 10px;
     }
 }
+
+
+
 .media {
     height: 400px;
     width: 100%;
@@ -330,6 +333,16 @@ code, kbd, pre, samp {
     background-attachment: fixed;
     margin-bottom: 30px;
     background-position: center center;
+}
+
+.media_tag {
+    .media {
+        height: 200px;
+    }
+    .media_title {
+        height: 150px;
+        padding-top: 50px;
+    }
 }
 
 
