@@ -37,7 +37,6 @@ mixin make_posts(posts)
 											a(href="/tag/{{tag}}")= tag
 							.post_body= post.content.limit(100)
 
-
 if request.args.pjax=='true'
 	+make_posts(posts)
 else
@@ -45,8 +44,8 @@ else
 	block title
 		title= request.args.s or tags.join('+') or category.title or site.title
 	block banner
-		site_cover = '/farbox_free_image.jpg'
-		site_desc = 'どうか、君と君を囲むこの世界が、これからも幸せでありますように。'
+		site_cover = 'https://unsplash.it/1930/700?image=201'
+		site_desc = ''
 		cover_color = '#fff'
 		if category.title=='Draw'
 			site_cover = '/Album/_image/f.jpg'
@@ -61,13 +60,16 @@ else
 		else if category.title=='FrontEnd'
 			site_cover = '/Album/_image/front.jpg'
 			site_desc = 'HTML · CSS · JavaScript · 靠敲代码维持生计_(:зゝ∠)_'
-		else
-			site_cover = '/Album/_image/banner.jpg'
 		div.media_wrap
-			.media_title
-				h2= category.title or ''
-				p.desc= site_desc
-			#particles-js.media(style="background-image: url({{site_cover}});background-color: {{cover_color}}")
+			if request.path.length > 1
+				.media_title
+					h2= category.title or tags.join('+') or ''
+					p.desc= site_desc
+				.media(style="background-image: url({{site_cover}});background-color: {{cover_color}}")
+			else 
+				.media_title
+					p.desc どうか、君と君を囲むこの世界が、これからも幸せでありますように。
+				#particles-js.media(style="background-image: url(https://unsplash.it/1930/1000?image=459)")
 	block content
 		if request.path.strip('/') == 'category'
 			+redirect('/categories')

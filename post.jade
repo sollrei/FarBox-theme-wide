@@ -39,4 +39,4 @@ block content
                 h3.title Tag Cloud
                 .tag_cloud
                     for tag in site.tags
-                        a(href='/tag/{{tag[0]}}') {{tag[0]}}
+                        a.tag_item(href='/tag/{{tag[0]}}') {{tag[0]}}

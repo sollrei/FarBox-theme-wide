@@ -1,44 +1,35 @@
 html
-	+i18n('Home', '首页', 'zh_cn')
-	+i18n('Albums', '相册', 'zh_cn')
-	+i18n('Categories', '分类', 'zh_cn')
-	+i18n('Archive', '归档', 'zh_cn')
-	+i18n('Tags', '标签', 'zh_cn')
-	+i18n('About', '关于', 'zh_cn')
-	+i18n('Links', '友链', 'zh_cn')
-	head
-		+mobile_meta()
-		meta(name="keywords", content=site.configs.keywords.escaped)
-		meta(name="description", content=site.raw_content.escaped)
-		block title
-			title= request.args.s or post.title or tags.join('+') or category.title or site.title
-		load('fonts /template/blog/style.scss')
-		link(href="https://fonts.googleapis.com/css?family=Molle:400i|Roboto:300",rel="stylesheet")
-	body
-		#body_wrapper
-			header#header.header
-				.header_wrapper.layout
-					h1.title= site.title
-					nav#nav.nav
-						ul.nav-list.clf
-							li
-								a(href="/") Home
-							if has('categories')
-								li
-									a(href='/category/frontend') Frontend
-								li
-									a(href='/category/dailylife') Dailylife
-								li
-									a(href='/category/travel') Travel
-								li
-									a(href='/category/draw') Draw
-							if site.tags
-								li
-									a(href='/tags') Tags
-				block banner
-			#main.layout
-				block content
-			footer.footer#footer
+    +i18n('Home', '首页', 'zh_cn')
+    +i18n('Albums', '相册', 'zh_cn')
+    +i18n('Categories', '分类', 'zh_cn')
+    +i18n('Archive', '归档', 'zh_cn')
+    +i18n('Tags', '标签', 'zh_cn')
+    +i18n('About', '关于', 'zh_cn')
+    +i18n('Links', '友链', 'zh_cn')
+    head
+        +mobile_meta()
+        meta(name="keywords", content=site.configs.keywords.escaped)
+        meta(name="description", content=site.raw_content.escaped)
+        block title
+            title= request.args.s or post.title or tags.join('+') or category.title or site.title
+        load('fonts /template/blog/style.scss')
+        link(href="https://fonts.googleapis.com/css?family=Molle:400i|Roboto:300",rel="stylesheet")
+    body
+        #body_wrapper
+            header#header.header
+                .header_wrapper.layout
+                    h1.title= site.title
+                    nav#nav.nav
+                        ul.nav-list.clf
+                            li
+                                a(href="/") Home
+                            for category in  get_data(type='folder', level=[1,2], min_posts_count=1)
+                                li
+                                    a(href="/category/{{ category.path }}")= category.path
+                block banner
+            #main.layout
+                block content
+            footer.footer#footer
                 .layout
                     .footer_box.footer_about
                         .footer_item
@@ -60,10 +51,10 @@ html
                                 a.fa.fa-github(href='https://github.com/sollrei/FarBox-theme-wide', target='_blank')
                                 a.fa.fa-weibo(href='http://weibo.com/sollrei', target='_blank')
                 .powered_by
-					span ©2016 Sollrei
-			+load('jquery')
-			+load('imageloaded.js')
-			+load('masonry.js')
+                    span ©2016 Sollrei
+            +load('jquery')
+            +load('imageloaded.js')
+            +load('masonry.js')
             +load('highlight.pack.js')
-			+load('particles.js')
-			+load('main.js')
+            +load('particles.js')
+            +load('main.js')
