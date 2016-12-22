@@ -41,10 +41,10 @@ html
                 .layout
                     .footer_box.footer_about
                         .footer_item
-                            h5.title About
-                            .about
-                                img.avatar(src='{{site.avatar}}')
-                                p hello 地球人
+                            h5.title Search
+                                form(action='/',method='get')
+                                    input.search_text(type='text',name='s',placeholder='Search')
+                                    input.search_submit(type='submit')
                     .footer_box.footer_tag
                         .footer_item
                             h5.title Tag Cloud
