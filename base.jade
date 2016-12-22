@@ -17,24 +17,27 @@ html
     body
         #body_wrapper
             header#header.header
-                .header_wrapper.layout
-                    h1.title= site.title
-                    nav#nav.nav
-                        ul.nav-list.clf
-                            li
-                                a(href="/") Home
-                            li
-                                a(href="/category/dailylife") DailyLife
-                            li
-                                a(href="/category/frontend") FrontEnd
-                            li
-                                a(href="/category/draw") Draw
-                            li
-                                a(href="/category/travel") Travel
-                block banner
+                .header_wrapper
+                    .layout
+                        h1.title= site.title
+                        nav#nav.nav
+                            ul.nav-list.clf
+                                li
+                                    a(href="/") Home
+                                li
+                                    a(href="/category/dailylife") DailyLife
+                                li
+                                    a(href="/category/frontend") FrontEnd
+                                li
+                                    a(href="/category/draw") Draw
+                                li
+                                    a(href="/category/travel") Travel
+            block banner
             #main.layout
                 block content
             footer.footer#footer
+                a.back(href='#header', title='返回顶部')
+                        i.fa.fa-chevron-up
                 .layout
                     .footer_box.footer_about
                         .footer_item
@@ -52,11 +55,14 @@ html
                         .footer_item
                             h5.title Contact
                             .contact
-                                a.fa.fa-twitter(href='https://twitter.com/sollrei', target='_blank')
-                                a.fa.fa-github(href='https://github.com/sollrei/FarBox-theme-wide', target='_blank')
-                                a.fa.fa-weibo(href='http://weibo.com/sollrei', target='_blank')
+                                a.fa.fa-twitter(href='https://twitter.com/sollrei', target='_blank', title='Twitter')
+                                a.fa.fa-github(href='https://github.com/sollrei/FarBox-theme-wide', target='_blank', title='github')
+                                a.fa.fa-weibo(href='http://weibo.com/sollrei', target='_blank', title='weibo')
+                                a.pixiv(href='http://www.pixiv.net/member.php?id=2383290', target='_blank', title='Pixiv')
+                                    b P
                 .powered_by
-                    span ©2016 Sollrei
+                    a(href="https://www.farbox.com", target="_blank") Powered By FarBox.com
+                    span  ©2016 Sollrei
             +load('jquery')
             +load('imageloaded.js')
             +load('masonry.js')
