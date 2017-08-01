@@ -13,6 +13,7 @@ html
         block title
             title= request.args.s or post.title or tags.join('+') or category.title or site.title
         load('fonts /template/blog/style.scss')
+        link(href='/service/static_3rd/staticfile/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
         link(href="https://fonts.googleapis.com/css?family=Molle:400i|Roboto:300",rel="stylesheet")
     body
         #body_wrapper
@@ -42,9 +43,9 @@ html
                     .footer_box.footer_about
                         .footer_item
                             h5.title Search
-                                form(action='/',method='get')
-                                    input.search_text(type='text',name='s',placeholder='Search')
-                                    input.search_submit(type='submit')
+                            form(action='/',method='get')
+                                input.search_text(type='text',name='s',placeholder='Search')
+                                input.search_submit(type='submit')
                     .footer_box.footer_tag
                         .footer_item
                             h5.title Tag Cloud
@@ -52,7 +53,7 @@ html
                             for tag in site.tags
                                 a.tag_item(href='/tag/{{tag[0]}}') {{tag[0]}}
                     .footer_box.footer_contact
-                        .footer_item
+                        .footer_item  
                             h5.title Contact
                             .contact
                                 a.fa.fa-twitter(href='https://twitter.com/sollrei', target='_blank', title='Twitter')
@@ -61,8 +62,8 @@ html
                                 a.pixiv(href='http://www.pixiv.net/member.php?id=2383290', target='_blank', title='Pixiv')
                                     b P
                 .powered_by
-                    a(href="https://www.farbox.com", target="_blank") Powered By FarBox.com
-                    span  ©2016 Sollrei
+                	a(href="https://www.farbox.com", target="_blank") Powered By FarBox.com 
+                    span  ©2016-2017 Sollrei
             +load('jquery')
             +load('imageloaded.js')
             +load('masonry.js')

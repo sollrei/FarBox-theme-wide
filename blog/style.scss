@@ -359,11 +359,15 @@ pre {
 //*********************************************************************//
 //                       search                                        //
 //*********************************************************************//
+.search_form {
+    position: relative;
+}
+
 .search_text {
-    border: 1px solid $theme;
-    padding: 10px;
+    border: 0;
+    border-bottom: 1px solid $theme;
+    padding: 10px 0;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .search_submit {
