@@ -5,6 +5,3 @@ bitcron快要公测了，以后可能都转向bitcron【官方也这么打算】
 
 banner图出处: [https://unsplash.com/](https://unsplash.com/)
 
-预览图：
-
-<img src="./preview.png">
